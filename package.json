@@ -1,0 +1,52 @@
+{
+  "name": "zenypass-modhex",
+  "version": "1.0.0",
+  "description": "lightweight (388 bytes gzip) hex to modhex converter and vice-versa for zenypass.",
+  "main": "dist/index.min.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "predist": "mkdirp dist && rimraf dist/*",
+    "dist": "tsc -p src --outDir dist",
+    "postdist": "npm run uglify",
+    "prepublish": "npm run test",
+    "pretest": "npm run dist",
+    "test": "jasmine",
+    "uglify": "terser dist/index.js -c toplevel -m toplevel --define process.env.NODE_ENV=\\\"production\\\" -o dist/index.min.js"
+  },
+  "keywords": [ "convert", "modhex", "zenypass" ],
+  "author": {
+    "name": "Stephane M. Catala",
+    "email": "stephane@zenyway.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zenyway/zenypass-modhex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zenyway/zenypass-modhex/issues"
+  },
+  "homepage": "https://github.com/zenyway/zenypass-modhex#readme",
+  "devDependencies": {
+    "@types/node": "10.12.18",
+    "browserify": "16.2.3",
+    "bundle-collapser": "1.3.0",
+    "common-shakeify": "0.4.6",
+    "envify": "4.1.0",
+    "eslint-plugin-typescript": "0.14.0",
+    "http-server": "0.11.1",
+    "inline-source-cli": "1.2.0",
+    "jasmine": "3.3.1",
+    "printf": "0.5.1",
+    "rimraf": "2.6.3",
+    "standard": "12.0.1",
+    "terser": "3.14.1",
+    "tsify": "4.0.1",
+    "tslint": "5.12.0",
+    "tslint-config-standard": "8.0.1",
+    "typescript": "3.2.2",
+    "typescript-eslint-parser": "21.0.2",
+    "uglifyify": "5.0.1"
+  },
+  "dependencies": {}
+}
